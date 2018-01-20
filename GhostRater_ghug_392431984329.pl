@@ -1,7 +1,7 @@
 #! perl -w
-# Implements ratings system devised by TheGhostmaker aka Thomas William Anthony
-# Author: Kyle Knohl
-# 
+# Implements ratings system devised by TheGhostmaker
+# Implemented by Alderian
+
 use Data::Dumper;
 
 $Games = {};
