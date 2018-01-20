@@ -1,13 +1,19 @@
 # webDiplomacyRatings
 
+## GhostRatings
+
+Ghost-Rating is an unofficial rating system developed by TheGhostmaker as an alternative to points. It intends to provide a more accurate measure of the ability of players, and also to give a better idea of how well people are doing compared to previously. The original version was developed in 2008, and based on the Elo used in chess, however the algorithm has been improved several times since then.
+
+Most of this code was written by TheGhostMaker and Alderian, and is currently maintained (poorly) by ghug.
+
+More info, and the ratings themselves, at http://tournaments.webdiplomacy.net/theghost-ratingslist
+
 THESE ARE INSTRUCTIONS FOR RUNNING GR. PLEASE FOLLOW ALL OF THEM.
 GR IS SUPER SHITTY. IT'S AN AMALGAMATION OF A LOT OF CODE THAT
 DIFFERENT PEOPLE WROTE WITHOUT A LOT OF TIME ON THEIR HANDS. IF YOU
-FEEL INCLINED TO MAKE IT NICER, PLEASE FIX IT AND UPDATE THIS
-DOCUMENT ACCORDINGLY. THANK YOU. -ghug
+FEEL INCLINED TO MAKE IT NICER, PLEASE FEEL FREE TO FIX IT. THANKS.
 
-
-TO RUN GR:
+### TO RUN GR:
 perl GhostRater_ghug_392431984329.pl ghostRatingData.txt Variantsfile.csv RemovedPlayers.csv [cat#] 6 0 1000000 0 [time]
 
 Arguments are:
@@ -36,7 +42,7 @@ right by checking past months against existing GR from the tournaments site.
 GR must be run after midnight GMT on the first of the month in order to capture the last month.
 
 
-TO RUN ELO:
+### TO RUN ELO:
 There's a user named Leonard H. "Bones" McCoy, MD (ID 12530) who seems to have
 engineered himself to break everything. Just delete the comma in the data file.
 Nobody likes him anyway. There may be more too, so if this is the issue, just
@@ -53,7 +59,7 @@ start time
 end time
 
 
-TO CLEAN CSVs:
+### TO CLEAN CSVs:
 Create a directory where you store GR data. It should be arranged as follows:
 ...dir/
 	Overall/
@@ -82,10 +88,21 @@ month you'd like to clean. This makes everything pretty and human-readable. You
 can also do this step with find/replace in Excel or similar if that's more your
 speed.
 
+### OTHER NECESSARY FILES
+RemovedPlayers.csv - A list of players to not consider when running GR.
+Formerly used to remove banned players, but currently left empty.
+VarianstFile.csv - Settings for weighting of different press and map variants.
 
-GR CATEGORIZE:
-This contains some useful tools for segmenting and processing GR data. Mostly
+## GR Categorize:
+gr_categorize.py contains some useful tools for segmenting and processing GR data. Mostly
 useful for player of the year awards and the like. Hit up ghug;
 he won't remember how to use it, but he'll figure it out for you since he's
 friendly and he wrote it in the first place.
 
+## EIDRaS Ratings
+EIDRaS is an Elo like system for Diplomacy developed decades ago by some other people. Unfortunately, it's name is way worse than Ghost Rating. Check out these links for more information:
+http://www.stabbeurfou.org/docs/articles/en/DP_S1998R_Diplomacys_New_Rating_System.html
+and
+http://uk.diplom.org/pouch//Email/Ratings/JDPR/describe.html
+
+Adapted for webDiplomacy by Yonni.
