@@ -4,6 +4,7 @@ VariantID,Variant Name,SC Count,Victory SC Count,Player Count,Reduction in V (fa
 2,World,86,44,17,4,1
 20,American,58,34,10,4,1
 19,Modern,64,33,10,4,1
+57,KnownWorld_901,109,55,15,4,1
 -1,Normal,,,,1,1
 -2,Public Press,,,,2,1
 -3,Gunboat,,,,4,1
