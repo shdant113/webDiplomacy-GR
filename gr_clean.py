@@ -9,7 +9,7 @@ changes = [   # a dictionary of changes to make, find 'key' substitue with 'valu
 
 banned = '\"-\"1'
 
-name = 'E:/Downloads/GhostRatings/'
+name = 'data/'
 date = 'GhostRatings-' + raw_input('year-month: ') + '.csv'
 
 def clean(filename):

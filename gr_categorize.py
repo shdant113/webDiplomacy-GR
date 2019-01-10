@@ -10,7 +10,7 @@ from collections import Counter
 ##categories in human readable format to allow for easy changing
 ##keys are data to filter, values are lists of values to match
 classic = {'variantID':['1'],
-           'potType':['Winner-takes-all'],
+           'potType':['Winner-takes-all', 'Sum-of-squares'],
            'phaseMinutes':['60', '120', '240', '360', '480', '600', '720',
                            '840', '960', '1080', '1200', '1320', '1440',
                            '1500', '2160', '2880', '3000', '4320', '5760',
@@ -33,7 +33,7 @@ longgunboat = {'variantID':['1'],
                            '7200', '8640', '10080', '14400']}
 
 liveclassic = {'variantID':['1'],
-               'potType':['Winner-takes-all'],
+               'potType':['Winner-takes-all', 'Sum-of-squares'],
                'phaseMinutes':['5', '10', '15', '30'],
                'pressType':['Regular', 'RulebookPress']}
 
@@ -42,17 +42,24 @@ nonlive = {'phaseMinutes':['60', '120', '240', '360', '480', '600', '720',
                            '1500', '2160', '2880', '3000', '4320', '5760',
                            '7200', '8640', '10080', '14400']}
 
+vs = {'variantID':['15', '23']}
+
+fva = {'variantID':['15']}
+
+gvi = {'variantID':['23']}
+
 overall = {}
 
-startdate = 1451563199
+startdate = 1483228800
 
-enddate = 1483185599
+enddate = 1514764799
 
 ##categories = [classic, gunboat, live]
 ##filenames = ['classicGRData.txt', 'gunboatGRData.txt', 'liveGRData.txt']
 
 categories = [classic, livegunboat, liveclassic, longgunboat, overall, live,
-              nonlive, vs]
+              nonlive, vs, fva, gvi]
+      
 filenames = ['longClassicGRData.txt', 'liveGunboatGRData.txt',
              'liveClassicGRData.txt', 'longGunboatGRData.txt',
              'overallGRData.txt', 'liveGRData.txt', 'nonliveGRData.txt']
@@ -89,7 +96,8 @@ def categorize(directory, export=True):
             if len(row) == row_len:
                 if row[10] != '':
                     time = int(row[10])
-                    if time > startdate and time < enddate and row[7] != 'Unranked':
+                    #if time > startdate and time < enddate and row[7] != 'Unranked':
+                    if time > startdate and time < enddate:
                         for i in range(num_cats):
                             if match_row_filter(row, filters[i], row_len):
                                 data[i].append(row)

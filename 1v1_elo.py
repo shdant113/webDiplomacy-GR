@@ -16,7 +16,7 @@ def read_file(path, time_cutoff):
     game_lines = []
     users={}
     with open(path) as f:
-        reader = csv.reader(f)
+        reader = csv.reader(f)#, quotechar='"', escapechar='\\', quoting=csv.QUOTE_ALL)
         l = len(reader.next())
         for row in reader:
             if len(row) == l:
@@ -98,7 +98,7 @@ def export_month(monthstr, ratings, last_dates, games, old_games, old_ratings,
     cut = year * 12 + month - dropoff
     cut_year = cut / 12
     cut_month = cut % 12
-	if cut_month == 0:
+    if cut_month == 0:
         cut_month = 12
         cut_year -= 1
     unix_cut = (datetime.datetime(cut_year, cut_month, 1) -
