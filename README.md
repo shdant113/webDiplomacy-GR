@@ -65,21 +65,24 @@ end time
 
 ### TO CLEAN CSVs:
 Create a directory where you store GR data. It should be arranged as follows:
+
+
 ...dir/  
-	Overall/  
-		2017-01.csv  
-		2017-02.csv  
-		2017-03.csv  
-		...  
-	Live/  
-		2017-01.csv  
-		...  
-	Classic/  
-		2017-01.csv  
-		...  
-	Gunboat/  
-		2017-01.csv  
-		...
+&nbsp;&nbsp;&nbsp;Overall/  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2017-01.csv  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2017-02.csv  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2017-03.csv  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...  
+&nbsp;&nbsp;&nbsp;Live/  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2017-01.csv  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...  
+&nbsp;&nbsp;&nbsp;Classic/  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2017-01.csv  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...  
+&nbsp;&nbsp;&nbsp;Gunboat/  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2017-01.csv  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...
+
 
 Change line 12 of gr_clean.py so that the directory matches your new directory.
 All of this only needs to be done once. New GR should just be arranged in this
