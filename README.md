@@ -20,12 +20,13 @@ DIFFERENT PEOPLE WROTE WITHOUT A LOT OF TIME ON THEIR HANDS. IF YOU
 FEEL INCLINED TO MAKE IT NICER, PLEASE FEEL FREE TO FIX IT. THANKS.
 
 ### TO RUN GR:
-perl processDataDump.pl ghostRatingData.txt Variantsfile.csv RemovedPlayers.csv [cat#] 6 0 1000000 0 [time]
+perl gr_processDataDump.pl ghostRatingData.txt Variantsfile.csv RemovedPlayers.csv [cat#] 6 0 1000000 0 [time]
 
 Arguments:
 command (perl)  
-script (processDataDump.pl)  
-data dump (ghostRatingData.txt, extract this from the zip at webdiplomacy.net/ghostRatingData.zip)  
+script (gr_processDataDump.pl)  
+data dump (ghostRatingData.txt, extract this from the zip at webdiplomacy.net/ghostRatingData.zip - 
+if you don't have access, ask someone who does)  
 variant file (defines the variants and how much to weight them)  
 removed players (we removed banned players for a while but that was weird so we stopped)  
 cat number (defines which games to include, existing category numbers are hardcoded below)  
@@ -48,10 +49,9 @@ right by checking past months against existing GR from the tournaments site.
 GR must be run after midnight GMT on the first of the month in order to capture the last month.
 
 ### TO RUN ELO:
-There's a user named Leonard H. "Bones" McCoy, MD (ID 12530) who seems to have
-engineered himself to break everything. Just delete the comma in the data file.
-Nobody likes him anyway. There may be more too, so if this is the issue, just
-remove their commas as well.
+There are two users, one named Leonard H. "Bones" McCoy, MD (ID 12530) and one named Dan"kazakhstan" the man, Sheeh (ID 86197) who seem to have engineered themselves 
+to break everything despite only logging in like four times total between the two of them. To fix the error, delete the comma by their names in the data dump 
+file. There may be more too, so if this is the issue, just remove their commas as well.
 
 python 1v1_elo.py ghostRatingData.txt 6 0 [time]
 
