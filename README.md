@@ -10,6 +10,8 @@ More info, and the ratings themselves, at http://tournaments.webdiplomacy.net/th
 
 I occasionally add a dump of old data to this repo. The files in the dataDump and storeGR directories are stupidly large. Don't download them unless a catastrophy happens and they don't exist anywhere else.
 
+**Cloning this repo will take a long time because of this. Watch an episode of GoT or something in the meanwhile.**
+
 These instructions were written by ghug.
 
 ---
