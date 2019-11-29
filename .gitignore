@@ -2,6 +2,7 @@ ghostRatingData.*
 
 months/*
 Data/
+storeGR/*
 
 GeneratedProcessTimes.txt
 GhostRatings.csv
