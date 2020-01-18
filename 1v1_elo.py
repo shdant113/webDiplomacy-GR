@@ -48,42 +48,43 @@ def process_games(lines, users):
         id1 = lines[i][2]
         id2 = lines[i+1][2]
         variant = lines[i][0]
-        if id1 in ratings[variant]:
-            r1 = ratings[variant][id1]
-        else:
-            r1 = default_rating
-            peak_ratings[variant][id1] = default_rating
-        if id2 in ratings[variant]:
-            r2 = ratings[variant][id2]
-        else:
-            r2 = default_rating
-            peak_ratings[variant][id2] = default_rating
-        if lines[i][5] == 'Drawn':
-            result = .5
-        elif lines[i][5] == 'Won':
-            result = 1
-        else:
-            result = 0
-        new_ratings = process_game(r1, r2, result)
-        ratings[variant][id1], ratings[variant][id2] = new_ratings
-        peak_ratings[variant][id1] = max(peak_ratings[variant][id1],
-                                         new_ratings[0])
-        peak_ratings[variant][id2] = max(peak_ratings[variant][id2],
-                                         new_ratings[1])
-        finish_time = int(lines[i][10])
-        last_dates[id1] = finish_time
-        last_dates[id2] = finish_time
-        new_month = datetime.datetime.fromtimestamp(int(lines[i][10])
-                                            ).strftime('%Y-%m')
-        games[variant][id1] += 1
-        games[variant][id2] += 1
-        if new_month != month:
-            month = new_month
-            old_ranks = export_month(month, ratings, last_dates, games,
-                                     old_games, old_ratings, old_ranks,
-                                     peak_ratings, users)
-            old_games = {a:dict(games[a]) for a in variant_ids}
-            old_ratings = {a:dict(ratings[a]) for a in variant_ids}
+        if id1 != 108388 && id2 != 108388:
+            if id1 in ratings[variant]:
+                r1 = ratings[variant][id1]
+            else:
+                r1 = default_rating
+                peak_ratings[variant][id1] = default_rating
+            if id2 in ratings[variant]:
+                r2 = ratings[variant][id2]
+            else:
+                r2 = default_rating
+                peak_ratings[variant][id2] = default_rating
+            if lines[i][5] == 'Drawn':
+                result = .5
+            elif lines[i][5] == 'Won':
+                result = 1
+            else:
+                result = 0
+            new_ratings = process_game(r1, r2, result)
+            ratings[variant][id1], ratings[variant][id2] = new_ratings
+            peak_ratings[variant][id1] = max(peak_ratings[variant][id1],
+                                             new_ratings[0])
+            peak_ratings[variant][id2] = max(peak_ratings[variant][id2],
+                                             new_ratings[1])
+            finish_time = int(lines[i][10])
+            last_dates[id1] = finish_time
+            last_dates[id2] = finish_time
+            new_month = datetime.datetime.fromtimestamp(int(lines[i][10])
+                                                ).strftime('%Y-%m')
+            games[variant][id1] += 1
+            games[variant][id2] += 1
+            if new_month != month:
+                month = new_month
+                old_ranks = export_month(month, ratings, last_dates, games,
+                                         old_games, old_ratings, old_ranks,
+                                         peak_ratings, users)
+                old_games = {a:dict(games[a]) for a in variant_ids}
+                old_ratings = {a:dict(ratings[a]) for a in variant_ids}
 
 ##result is 1 for p1 win, .5 for draw, 0 for loss
 def process_game(r1, r2, result):
