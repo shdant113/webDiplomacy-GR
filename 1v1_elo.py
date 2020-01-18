@@ -18,7 +18,7 @@ def read_file(path, time_cutoff):
     users={}
     with open(path) as f:
         reader = csv.reader(f)#, quotechar='"', escapechar='\\', quoting=csv.QUOTE_ALL)
-        l = len(reader.next())
+        l = len(next(reader))
         for row in reader:
             if len(row) == l:
                 if row[10] == '':
@@ -28,10 +28,11 @@ def read_file(path, time_cutoff):
                     game_lines.append(row)
             else:
                 break
-        reader.next()
+        next(reader)
         for row in reader:
             users[row[0]] = (row[1], int(row[2]))
     game_lines.sort(key=lambda x: int(x[10]))
+    print(game_lines)
     return game_lines, users
 
 def process_games(lines, users):
@@ -48,7 +49,7 @@ def process_games(lines, users):
         id1 = lines[i][2]
         id2 = lines[i+1][2]
         variant = lines[i][0]
-        if id1 != 108388 and id2 != 108388:
+        if id1 != "108388" and id2 != "108388":
             if id1 in ratings[variant]:
                 r1 = ratings[variant][id1]
             else:
@@ -101,7 +102,7 @@ def export_month(monthstr, ratings, last_dates, games, old_games, old_ratings,
                  old_ranks, peak_ratings, users):
     year, month = map(int, monthstr.split('-'))
     cut = year * 12 + month - dropoff
-    cut_year = cut / 12
+    cut_year = cut // 12
     cut_month = cut % 12
     if cut_month == 0:
         cut_month = 12
@@ -111,7 +112,7 @@ def export_month(monthstr, ratings, last_dates, games, old_games, old_ratings,
     sort = []
     lines = []
     
-    for user, time in last_dates.iteritems():
+    for user, time in last_dates.items():
         if time > unix_cut and not users[user][1]:
             total_games = 0
             rating = 0
