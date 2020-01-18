@@ -32,7 +32,6 @@ def read_file(path, time_cutoff):
         for row in reader:
             users[row[0]] = (row[1], int(row[2]))
     game_lines.sort(key=lambda x: int(x[10]))
-    print(game_lines)
     return game_lines, users
 
 def process_games(lines, users):
