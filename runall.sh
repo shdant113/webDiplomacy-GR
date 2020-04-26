@@ -41,9 +41,9 @@ mv months Live/
 mv Live/ storeGR/
 
 # 1v1 GR
-python 1v1_elo.py ghostRatingData.txt 6 0 $is1v1Date
+python3 1v1_elo.py ghostRatingData.txt 6 0 $is1v1Date
 mv 1v1 storeGR
 
 # clean CSVs
-python gr_clean.py
+python3 gr_clean.py
 
