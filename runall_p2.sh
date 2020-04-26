@@ -1,4 +1,4 @@
-## THIS FILE IS FOR PYTHON 2. IF YOU RUN PYTHON 3, USE RUNALL_P2.SH ##
+## THIS FILE IS FOR PYTHON 2. IF YOU RUN PYTHON 3, USE RUNALL.SH ##
 
 
 ## This file will run GR for the given month. 
@@ -43,9 +43,9 @@ mv months Live/
 mv Live/ storeGR/
 
 # 1v1 GR
-python3 1v1_elo.py ghostRatingData.txt 6 0 $is1v1Date
+python 1v1_elo_p2.py ghostRatingData.txt 6 0 $is1v1Date
 mv 1v1 storeGR
 
 # clean CSVs
-python3 gr_clean.py
+python gr_clean.py
 

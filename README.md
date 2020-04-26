@@ -14,16 +14,20 @@ More info, and the ratings themselves, at http://tournaments.webdiplomacy.net/th
 
 These instructions were written by ghug and bo_sox48. To run GR, clone this repo and follow these instructions.
 
-You need to have the Bash shell and Perl installed on your machine in order to run GR. GR must be run after midnight GMT on the first of the month in order to capture the last month.
+These instructions are written for Python 3 users. GR can still be run with Python 2. You also need to have Bash and Perl installed on your machine in order to run GR. The Bash scripts here are optimized for Mac OS. GR must be run after midnight GMT on the first of the month in order to capture the last month. 
 
 ---
 
 
 ### To run GR all at once (recommended):
 
+#### If you are using Python 3:
+
 In your command line, enter:
 
 ` bash runall.sh `
+
+For Python 2 instructions, see below.
 
 This script will create the default directory to store the GR output in that is configured throughout the GR files. If you have never run GR before, this will allow you to run it immediately without further configuration. If you do not want to use this directory, you will have to configure your own file storage. To do this, change the default directory on line 12 in gr_clean.py from storeGR/ to whatever you choose, and then do the same where necessary in the runall.sh file.
 
@@ -86,7 +90,11 @@ This outputs a bunch of files called YYYY-MM.csv. Put them in a folder so they'r
 
 ### TO RUN ELO:
 
-` python 1v1_elo.py ghostRatingData.txt 6 0 [time] `
+#### If you are using Python 3:
+
+` python3 1v1_elo.py ghostRatingData.txt 6 0 [time] `
+
+For Python 2 instructions, see below.
 
 Arguments:  
 command (python)  
@@ -100,6 +108,7 @@ For whatever reason, you may have to enter the end time 1 month in advance in or
 
 
 ### TO CLEAN CSVs:
+
 Create a directory where you store GR data. It should be arranged as follows:
 
 
@@ -124,7 +133,7 @@ Change line 12 of gr_clean.py so that the directory matches your new directory.
 All of this only needs to be done once. New GR should just be arranged in this
 directory. You can then run:
 
-` python gr_clean.py `
+` python3 gr_clean.py `
 
 The program will prompt you for input. Enter the year and month (YYYY-MM) of the month you'd like to clean. This makes everything pretty and human-readable. You can also do this step with find/replace in Excel or similar if that's more your speed.
 
@@ -147,3 +156,22 @@ Adapted for webDiplomacy by Yonni.
 ## GR Maintainers:
 
 The Ghostmaker, Alderian, jmo1121109, Hellenic Riot, ghug, bo_sox48
+
+---
+
+
+### Python 2 instructions:
+
+While Python 2 is past its life cycle, you can still use Python 2 to run GR. For the most part, you will use the same instructions as are written above. The only differences are the following:
+
+Instead of running `bash runall.sh` to run all scripts, you will need to use this command:
+
+` bash runall_p2.sh `
+
+If you are running each script individually, you can follow the aforementioned instructions for Overall, Classic, Live, and Gunboat ratings. For 1v1, you can follow the aforementioned instructions but will need to use this command:
+
+` python 1v1_elo_p2.py ghostRatingData.txt 6 0 [time] `
+
+To clean CSVs, use this command:
+
+` python gr_clean.py `
