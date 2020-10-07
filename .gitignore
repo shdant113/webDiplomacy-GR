@@ -7,3 +7,5 @@ storeGR/*
 GeneratedProcessTimes.txt
 GhostRatings.csv
 NotProcessed.txt
+
+.DS_Store
