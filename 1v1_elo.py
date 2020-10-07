@@ -48,7 +48,8 @@ def process_games(lines, users):
         id1 = lines[i][2]
         id2 = lines[i+1][2]
         variant = lines[i][0]
-        if id1 != "108388" and id2 != "108388":
+        # excluded bot users
+        if (id1 != "108388" and id1 != "125591") and (id2 != "108388" and id2 != "125591"):
             if id1 in ratings[variant]:
                 r1 = ratings[variant][id1]
             else:

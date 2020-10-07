@@ -1,6 +1,5 @@
 ## THIS FILE IS FOR PYTHON 2. IF YOU RUN PYTHON 3, USE RUNALL.SH ##
 
-
 ## This file will run GR for the given month. 
 ## This script is optimized for usage on Mac OS because I use it. 
 ## Bash is different on different systems. This script may fail.
@@ -19,33 +18,38 @@ fi
 not1v1Date=$(date -v+1m -v1d +%s)
 is1v1Date=$(date -v1d +%s)
 
-echo $not1v1Date
-echo $is1v1Date
-
 # Overall GR
+echo "Calculating overall GR"
 perl gr_processDataDump.pl ghostRatingData.txt Variantsfile.csv RemovedPlayers.csv 510 6 0 1000000 0 $not1v1Date
 mv months Overall/
 mv Overall storeGR/
 
 # Gunboat GR
+echo "Calculating gunboat GR"
 perl gr_processDataDump.pl ghostRatingData.txt Variantsfile.csv RemovedPlayers.csv 318 6 0 1000000 0 $not1v1Date
 mv months Gunboat/
 mv Gunboat storeGR/
 
 # FP GR
+echo "Calculating full press GR"
 perl gr_processDataDump.pl ghostRatingData.txt Variantsfile.csv RemovedPlayers.csv 82 6 0 1000000 0 $not1v1Date
 mv months Classic/
 mv Classic storeGR/
 
 # Live GR
+echo "Calculating live game GR"
 perl gr_processDataDump.pl ghostRatingData.txt Variantsfile.csv RemovedPlayers.csv 494 6 0 1000000 0 $not1v1Date
 mv months Live/
 mv Live/ storeGR/
 
 # 1v1 GR
+echo "Calculating 1v1 ELO"
 python 1v1_elo_p2.py ghostRatingData.txt 6 0 $is1v1Date
 mv 1v1 storeGR
 
 # clean CSVs
+echo "Cleaning CSVs. Please acknowledge:"
 python gr_clean.py
+
+echo "Finished!"
 

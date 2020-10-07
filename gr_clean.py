@@ -1,6 +1,13 @@
-#credit to someone on stackoverflow
+# Cleans CSVs for GR to make them human readable
+# Written by ghug, maintained by bo_sox48
 
-import csv
+import csv, sys
+
+input_date = ''
+if len(sys.argv) > 1:
+    input_date = sys.argv[1]
+else:
+    input_date = input('year-month (yyyy-mm): ')
 
 changes = [   # a dictionary of changes to make, find 'key' substitue with 'value'
     ('\"-\"0', ''), # I assume both 'key' and 'value' are strings
@@ -10,7 +17,7 @@ changes = [   # a dictionary of changes to make, find 'key' substitue with 'valu
 banned = '\"-\"1'
 
 name = 'storeGR/'
-date = 'GhostRatings-' + input('year-month: ') + '.csv'
+date = 'GhostRatings-' + input_date + '.csv'
 
 def clean(filename):
     new_rows = [] # a holder for our modified rows when we make them

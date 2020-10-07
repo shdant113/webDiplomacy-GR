@@ -1,10 +1,9 @@
 ghostRatingData.*
 
 months/*
-Data/
+Data/*
 storeGR/*
 
 GeneratedProcessTimes.txt
 GhostRatings.csv
 NotProcessed.txt
-
