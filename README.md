@@ -1,3 +1,9 @@
+## This repository is archived, as the Ghost Ratings have been fully integrated into webDiplomacy.
+https://www.webdiplomacy.net/contrib/phpBB3/viewtopic.php?f=5&p=186794#p186794
+
+---
+
+
 # webDiplomacyRatings
 
 ## GhostRatings
